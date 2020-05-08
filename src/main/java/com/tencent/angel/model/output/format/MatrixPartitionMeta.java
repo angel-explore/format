@@ -31,7 +31,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
- * The meta data for a Matrix partition.
+ * 矩阵分区元数据
  */
 public class MatrixPartitionMeta {
     private static final Log LOG = LogFactory.getLog(MatrixPartitionMeta.class);
@@ -41,62 +41,63 @@ public class MatrixPartitionMeta {
     private int partId;
 
     /**
-     * The start row index for this partition
+     * 分区起始行行号
      */
     private int startRow;
 
     /**
-     * The end row index for this partition
+     * 分区结束行行号
      */
     private int endRow;
 
     /**
-     * The start column index for this partition
+     * 分区起始列列号
      */
     private long startCol;
 
     /**
-     * The end column index for this partition
+     * 分区结束列列号
      */
     private long endCol;
 
     /**
-     * Non-zero element number in this partition
+     * Non-zero
+     * 分区非零元素个数（暂时没用）
      */
     private long nnz;
 
     /**
-     * The file name to which the partition is written
+     * 分区数据所在文件名，用于写入
      */
     private String fileName;
 
     /**
-     * The start position for this partition in the file
+     * 分区数据在文件中的位置
      */
     private long offset;
 
     /**
-     * Written length
+     * 写入分区数据长度（字节数）
      */
     private long length;
 
     /**
-     * Saved row number
+     * 分区中保存的行数
      */
     private int saveRowNum;
 
     /**
-     * rows offset
+     * 分区行索引
      */
     private Map<Integer, RowPartitionMeta> rowMetas;
 
     /**
-     * Save column number, just for column first save method
+     * 分区中保存的列数（只在列主序格式中有用）
      */
     private int saveColNum;
 
     /**
-     * Save element number for a column, just for column first save method
+     * 每一列保存的元素个数（只在列主序格式中有用）
      */
     private int saveColElemNum;
 

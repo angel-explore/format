@@ -33,57 +33,58 @@ import java.util.concurrent.ConcurrentSkipListMap;
 
 /**
  * Model meta file, it includes matrix properties and partition meta
+ * 模型元数据文件，它包含矩阵属性和分区元数据
  */
 public class MatrixFilesMeta {
 
     private static final Log LOG = LogFactory.getLog(MatrixFilesMeta.class);
     /**
-     * Matrix id
+     * 矩阵ID
      */
     private int matrixId;
 
     /**
-     * Matrix row type
+     * 矩阵类型，可参看RowType类
      */
     private int rowType;
 
     /**
-     * Row number of matrix
+     * 矩阵行数
      */
     private int row;
 
     /**
-     * Row number in a block
+     * 矩阵分区块行数
      */
     private int blockRow;
 
     /**
-     * Matrix column number
+     * 矩阵列数
      */
     private long col;
 
     /**
-     * Column number in a block
+     * 矩阵分区块列数
      */
     private long blockCol;
 
     /**
-     * Matrix name
+     * 矩阵名称
      */
     private String matrixName;
 
     /**
-     * Format class name
+     * 矩阵存储格式，类全路径名
      */
     private String formatClassName;
 
     /**
-     * Other matrix parameters
+     * 其它可选矩阵参数设置
      */
     private Map<String, String> options;
 
     /**
-     * Matrix partition meta
+     * 矩阵分区元数据
      */
     private Map<Integer, MatrixPartitionMeta> partMetas;
 
@@ -91,7 +92,7 @@ public class MatrixFilesMeta {
     public static final String FEATURE_INDEX_RANGE_END = "feature.index.range.end";
 
     /**
-     * Create a MatrixFilesMeta
+     * 初始化
      *
      * @param matrixId   matrix id
      * @param matrixName matrix name
@@ -134,8 +135,7 @@ public class MatrixFilesMeta {
     public MatrixFilesMeta(int matrixId, String matrixName, String formatClassName, int rowType,
                            int row, long col, int blockRow, long blockCol, Map<String, String> options) {
         this(matrixId, matrixName, formatClassName, rowType, row, col, blockRow, blockCol,
-                options,
-                new ConcurrentSkipListMap<>());
+                options, new ConcurrentSkipListMap<>());
     }
 
     /**

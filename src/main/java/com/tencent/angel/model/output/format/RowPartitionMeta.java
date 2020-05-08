@@ -25,27 +25,28 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /**
- * The meta data for row split
+ * 分区的某一行分片对应的元数据
  */
 public class RowPartitionMeta {
 
     /**
-     * Row id
+     * 行号
      */
     private int rowId;
 
     /**
-     * The offset for data file for this row split
+     * 行数据在文件中的位置
      */
     private long offset;
 
     /**
-     * The element number for this row split
+     * 该行包含的元素个数
      */
     private int elementNum;
 
     /**
-     * Save type: 0 dense, 1 sparse. just for SnapshotFormat now
+     * 该行保存的文件格式
+     * 0 dense, 1 sparse，现在只有SnapshotFormat格式
      */
     private int saveType;
 
