@@ -19,6 +19,7 @@
 package com.tencent.angel.model;
 
 import com.tencent.angel.model.output.format.RowIdColIdValueTextRowFormat;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,89 +28,89 @@ import java.util.List;
  */
 public class MatrixSaveContext {
 
-  /**
-   * Matrix name
-   */
-  private final String matrixName;
+    /**
+     * Matrix name
+     */
+    private final String matrixName;
 
-  /**
-   * Matrix output format class name
-   */
-  private final String formatClassName;
+    /**
+     * Matrix output format class name
+     */
+    private final String formatClassName;
 
-  /**
-   * Need save matrix rows
-   */
-  private final List<Integer> rowIndexes;
+    /**
+     * Need save matrix rows
+     */
+    private final List<Integer> rowIndexes;
 
-  private static final String defaultFormatClass = RowIdColIdValueTextRowFormat.class.getName();
+    private static final String defaultFormatClass = RowIdColIdValueTextRowFormat.class.getName();
 
-  /**
-   * Create a new MatrixSaveContext
-   *
-   * @param matrixName matrix name
-   */
-  public MatrixSaveContext(String matrixName, String formatClassName) {
-    this(matrixName, new ArrayList<>(), formatClassName);
-  }
-
-  /**
-   * Create a new MatrixSaveContext
-   *
-   * @param matrixName matrix name
-   */
-  public MatrixSaveContext(String matrixName) {
-    this(matrixName, new ArrayList<>(), defaultFormatClass);
-  }
-
-
-  /**
-   * Create a new MatrixSaveContext
-   *
-   * @param matrixName matrix name
-   * @param rowIndexes need save matrix rows
-   * @param formatClassName matrix save format class name
-   */
-  public MatrixSaveContext(String matrixName, List<Integer> rowIndexes, String formatClassName) {
-    this.matrixName = matrixName;
-    this.rowIndexes = rowIndexes;
-    this.formatClassName = formatClassName;
-  }
-
-  public void addIndex(int idx) {
-    this.rowIndexes.add(idx);
-  }
-
-  public void addIndices(int[] indices) {
-    for (int idx : indices) {
-      this.rowIndexes.add(idx);
+    /**
+     * Create a new MatrixSaveContext
+     *
+     * @param matrixName matrix name
+     */
+    public MatrixSaveContext(String matrixName, String formatClassName) {
+        this(matrixName, new ArrayList<>(), formatClassName);
     }
-  }
 
-  /**
-   * Get matrix name
-   *
-   * @return matrix name
-   */
-  public String getMatrixName() {
-    return matrixName;
-  }
+    /**
+     * Create a new MatrixSaveContext
+     *
+     * @param matrixName matrix name
+     */
+    public MatrixSaveContext(String matrixName) {
+        this(matrixName, new ArrayList<>(), defaultFormatClass);
+    }
 
-  /**
-   * Get need save matrix rows
-   *
-   * @return need save matrix rows
-   */
-  public List<Integer> getRowIndexes() {
-    return rowIndexes;
-  }
 
-  /**
-   * Get matrix save format class
-   *
-   * @return matrix save format class
-   */
-  public String getFormatClassName() {
-    return formatClassName;
-  }
+    /**
+     * Create a new MatrixSaveContext
+     *
+     * @param matrixName      matrix name
+     * @param rowIndexes      need save matrix rows
+     * @param formatClassName matrix save format class name
+     */
+    public MatrixSaveContext(String matrixName, List<Integer> rowIndexes, String formatClassName) {
+        this.matrixName = matrixName;
+        this.rowIndexes = rowIndexes;
+        this.formatClassName = formatClassName;
+    }
+
+    public void addIndex(int idx) {
+        this.rowIndexes.add(idx);
+    }
+
+    public void addIndices(int[] indices) {
+        for (int idx : indices) {
+            this.rowIndexes.add(idx);
+        }
+    }
+
+    /**
+     * Get matrix name
+     *
+     * @return matrix name
+     */
+    public String getMatrixName() {
+        return matrixName;
+    }
+
+    /**
+     * Get need save matrix rows
+     *
+     * @return need save matrix rows
+     */
+    public List<Integer> getRowIndexes() {
+        return rowIndexes;
+    }
+
+    /**
+     * Get matrix save format class
+     *
+     * @return matrix save format class
+     */
+    public String getFormatClassName() {
+        return formatClassName;
+    }
 }

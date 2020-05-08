@@ -22,23 +22,23 @@ package com.tencent.angel.model.output.format;
  */
 public class RowFormatContext {
 
-  /**
-   * Use int index or not
-   */
-  public boolean useIntIndex;
+    /**
+     * Use int index or not
+     */
+    public boolean useIntIndex;
 
-  /**
-   * Need sort the indices by increase first
-   */
-  public boolean sortFirst;
+    /**
+     * Need sort the indices by increase first
+     */
+    public boolean sortFirst;
 
-  /**
-   * Index offset, only use for PS
-   */
-  public long offset;
+    /**
+     * Index offset, only use for PS
+     */
+    public long offset;
 
-  /**
-   * Need load element number
-   */
-  public int elementNum;
+    /**
+     * Need load element number
+     */
+    public int elementNum;
 }

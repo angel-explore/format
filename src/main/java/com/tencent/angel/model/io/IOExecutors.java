@@ -18,57 +18,58 @@
 
 package com.tencent.angel.model.io;
 
-import java.util.concurrent.ForkJoinPool;
-import java.util.concurrent.ForkJoinTask;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
+import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.ForkJoinTask;
 
 /**
  * Master Matrix disk io operation executors.
  */
 public class IOExecutors {
 
-  private static final Log LOG = LogFactory.getLog(IOExecutors.class);
-  private final int poolSize;
-  private volatile ForkJoinPool pool;
+    private static final Log LOG = LogFactory.getLog(IOExecutors.class);
+    private final int poolSize;
+    private volatile ForkJoinPool pool;
 
-  public IOExecutors(int poolSize) {
-    this.poolSize = poolSize;
-  }
-
-  public void init() {
-
-  }
-
-  public void start() {
-    pool = new ForkJoinPool(poolSize);
-  }
-
-  /**
-   * Execute a task use ForkJoin
-   *
-   * @param task a implementation of ForkJoinTask
-   */
-  public void execute(ForkJoinTask task) {
-    pool.execute(task);
-  }
-
-  /**
-   * Execute a task
-   *
-   * @param task a implementation of Runnable
-   */
-  public void execute(Runnable task) {
-    pool.execute(task);
-  }
-
-  /**
-   * Shut down all workers
-   */
-  public void shutdown() {
-    if (pool != null) {
-      pool.shutdownNow();
-      pool = null;
+    public IOExecutors(int poolSize) {
+        this.poolSize = poolSize;
     }
-  }
+
+    public void init() {
+
+    }
+
+    public void start() {
+        pool = new ForkJoinPool(poolSize);
+    }
+
+    /**
+     * Execute a task use ForkJoin
+     *
+     * @param task a implementation of ForkJoinTask
+     */
+    public void execute(ForkJoinTask task) {
+        pool.execute(task);
+    }
+
+    /**
+     * Execute a task
+     *
+     * @param task a implementation of Runnable
+     */
+    public void execute(Runnable task) {
+        pool.execute(task);
+    }
+
+    /**
+     * Shut down all workers
+     */
+    public void shutdown() {
+        if (pool != null) {
+            pool.shutdownNow();
+            pool = null;
+        }
+    }
 }

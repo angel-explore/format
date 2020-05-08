@@ -21,9 +21,9 @@ import org.apache.hadoop.conf.Configuration;
 
 public abstract class ColumnFormatImpl implements ColumnFormat {
 
-  protected final Configuration conf;
+    protected final Configuration conf;
 
-  public ColumnFormatImpl(Configuration conf) {
-    this.conf = conf;
-  }
+    public ColumnFormatImpl(Configuration conf) {
+        this.conf = conf;
+    }
 }

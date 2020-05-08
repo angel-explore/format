@@ -22,17 +22,17 @@ package com.tencent.angel.model.output.element;
  */
 public class LongLongElement {
 
-  public int rowId;
-  public long colId;
-  public long value;
+    public int rowId;
+    public long colId;
+    public long value;
 
-  public LongLongElement(int rowId, long colId, long value) {
-    this.rowId = rowId;
-    this.colId = colId;
-    this.value = value;
-  }
+    public LongLongElement(int rowId, long colId, long value) {
+        this.rowId = rowId;
+        this.colId = colId;
+        this.value = value;
+    }
 
-  public LongLongElement() {
-    this(0, 0, 0);
-  }
+    public LongLongElement() {
+        this(0, 0, 0);
+    }
 }

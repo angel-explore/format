@@ -22,22 +22,22 @@ package com.tencent.angel.model.output.format;
  */
 public class FormatContext {
 
-  private String sep = ",";
-  private String format;
+    private String sep = ",";
+    private String format;
 
-  public String getSep() {
-    return sep;
-  }
+    public String getSep() {
+        return sep;
+    }
 
-  public void setSep(String sep) {
-    this.sep = sep;
-  }
+    public void setSep(String sep) {
+        this.sep = sep;
+    }
 
-  public String getFormat() {
-    return format;
-  }
+    public String getFormat() {
+        return format;
+    }
 
-  public void setFormat(String format) {
-    this.format = format;
-  }
+    public void setFormat(String format) {
+        this.format = format;
+    }
 }

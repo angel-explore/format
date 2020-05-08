@@ -22,11 +22,11 @@ package com.tencent.angel.model.output.element;
  */
 public class IntDoublesCol {
 
-  public int colId;
-  public double[] colElems;
+    public int colId;
+    public double[] colElems;
 
-  public IntDoublesCol(int colId, double[] colElems) {
-    this.colId = colId;
-    this.colElems = colElems;
-  }
+    public IntDoublesCol(int colId, double[] colElems) {
+        this.colId = colId;
+        this.colElems = colElems;
+    }
 }

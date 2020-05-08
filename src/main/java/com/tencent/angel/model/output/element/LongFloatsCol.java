@@ -22,11 +22,11 @@ package com.tencent.angel.model.output.element;
  */
 public class LongFloatsCol {
 
-  public long colId;
-  public float[] colElems;
+    public long colId;
+    public float[] colElems;
 
-  public LongFloatsCol(int colId, float[] colElems) {
-    this.colId = colId;
-    this.colElems = colElems;
-  }
+    public LongFloatsCol(int colId, float[] colElems) {
+        this.colId = colId;
+        this.colElems = colElems;
+    }
 }

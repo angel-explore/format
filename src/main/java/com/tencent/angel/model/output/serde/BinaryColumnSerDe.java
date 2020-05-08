@@ -17,153 +17,147 @@
 
 package com.tencent.angel.model.output.serde;
 
-import com.tencent.angel.model.output.element.IntDoublesCol;
-import com.tencent.angel.model.output.element.IntFloatsCol;
-import com.tencent.angel.model.output.element.IntIntsCol;
-import com.tencent.angel.model.output.element.IntLongsCol;
-import com.tencent.angel.model.output.element.LongDoublesCol;
-import com.tencent.angel.model.output.element.LongFloatsCol;
-import com.tencent.angel.model.output.element.LongIntsCol;
-import com.tencent.angel.model.output.element.LongLongsCol;
+import com.tencent.angel.model.output.element.*;
+import org.apache.hadoop.conf.Configuration;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import org.apache.hadoop.conf.Configuration;
 
 /**
  * Binary format: column id, column values
  */
 public class BinaryColumnSerDe extends ColumnSerDeImpl {
 
-  public BinaryColumnSerDe(Configuration conf) {
-    super(conf);
-  }
-
-  @Override
-  public void serialize(IntFloatsCol col, DataOutputStream output) throws IOException {
-    output.writeInt(col.colId);
-    for (float value : col.colElems) {
-      output.writeFloat(value);
+    public BinaryColumnSerDe(Configuration conf) {
+        super(conf);
     }
-  }
 
-  @Override
-  public void serialize(IntDoublesCol col, DataOutputStream output) throws IOException {
-    output.writeInt(col.colId);
-    for (double value : col.colElems) {
-      output.writeDouble(value);
+    @Override
+    public void serialize(IntFloatsCol col, DataOutputStream output) throws IOException {
+        output.writeInt(col.colId);
+        for (float value : col.colElems) {
+            output.writeFloat(value);
+        }
     }
-  }
 
-  @Override
-  public void serialize(IntIntsCol col, DataOutputStream output) throws IOException {
-    output.writeInt(col.colId);
-    for (int value : col.colElems) {
-      output.writeInt(value);
+    @Override
+    public void serialize(IntDoublesCol col, DataOutputStream output) throws IOException {
+        output.writeInt(col.colId);
+        for (double value : col.colElems) {
+            output.writeDouble(value);
+        }
     }
-  }
 
-  @Override
-  public void serialize(IntLongsCol col, DataOutputStream output) throws IOException {
-    output.writeInt(col.colId);
-    for (long value : col.colElems) {
-      output.writeLong(value);
+    @Override
+    public void serialize(IntIntsCol col, DataOutputStream output) throws IOException {
+        output.writeInt(col.colId);
+        for (int value : col.colElems) {
+            output.writeInt(value);
+        }
     }
-  }
 
-  @Override
-  public void serialize(LongFloatsCol col, DataOutputStream output) throws IOException {
-    output.writeLong(col.colId);
-    for (float value : col.colElems) {
-      output.writeFloat(value);
+    @Override
+    public void serialize(IntLongsCol col, DataOutputStream output) throws IOException {
+        output.writeInt(col.colId);
+        for (long value : col.colElems) {
+            output.writeLong(value);
+        }
     }
-  }
 
-  @Override
-  public void serialize(LongDoublesCol col, DataOutputStream output) throws IOException {
-    output.writeLong(col.colId);
-    for (double value : col.colElems) {
-      output.writeDouble(value);
+    @Override
+    public void serialize(LongFloatsCol col, DataOutputStream output) throws IOException {
+        output.writeLong(col.colId);
+        for (float value : col.colElems) {
+            output.writeFloat(value);
+        }
     }
-  }
 
-  @Override
-  public void serialize(LongIntsCol col, DataOutputStream output) throws IOException {
-    output.writeLong(col.colId);
-    for (int value : col.colElems) {
-      output.writeInt(value);
+    @Override
+    public void serialize(LongDoublesCol col, DataOutputStream output) throws IOException {
+        output.writeLong(col.colId);
+        for (double value : col.colElems) {
+            output.writeDouble(value);
+        }
     }
-  }
 
-  @Override
-  public void serialize(LongLongsCol col, DataOutputStream output) throws IOException {
-    output.writeLong(col.colId);
-    for (long value : col.colElems) {
-      output.writeLong(value);
+    @Override
+    public void serialize(LongIntsCol col, DataOutputStream output) throws IOException {
+        output.writeLong(col.colId);
+        for (int value : col.colElems) {
+            output.writeInt(value);
+        }
     }
-  }
 
-  @Override
-  public void deserialize(IntFloatsCol col, DataInputStream input) throws IOException {
-    col.colId = input.readInt();
-    for (int i = 0; i < col.colElems.length; i++) {
-      col.colElems[i] = input.readFloat();
+    @Override
+    public void serialize(LongLongsCol col, DataOutputStream output) throws IOException {
+        output.writeLong(col.colId);
+        for (long value : col.colElems) {
+            output.writeLong(value);
+        }
     }
-  }
 
-  @Override
-  public void deserialize(IntDoublesCol col, DataInputStream input) throws IOException {
-    col.colId = input.readInt();
-    for (int i = 0; i < col.colElems.length; i++) {
-      col.colElems[i] = input.readDouble();
+    @Override
+    public void deserialize(IntFloatsCol col, DataInputStream input) throws IOException {
+        col.colId = input.readInt();
+        for (int i = 0; i < col.colElems.length; i++) {
+            col.colElems[i] = input.readFloat();
+        }
     }
-  }
 
-  @Override
-  public void deserialize(IntIntsCol col, DataInputStream input) throws IOException {
-    col.colId = input.readInt();
-    for (int i = 0; i < col.colElems.length; i++) {
-      col.colElems[i] = input.readInt();
+    @Override
+    public void deserialize(IntDoublesCol col, DataInputStream input) throws IOException {
+        col.colId = input.readInt();
+        for (int i = 0; i < col.colElems.length; i++) {
+            col.colElems[i] = input.readDouble();
+        }
     }
-  }
 
-  @Override
-  public void deserialize(IntLongsCol col, DataInputStream input) throws IOException {
-    col.colId = input.readInt();
-    for (int i = 0; i < col.colElems.length; i++) {
-      col.colElems[i] = input.readLong();
+    @Override
+    public void deserialize(IntIntsCol col, DataInputStream input) throws IOException {
+        col.colId = input.readInt();
+        for (int i = 0; i < col.colElems.length; i++) {
+            col.colElems[i] = input.readInt();
+        }
     }
-  }
 
-  @Override
-  public void deserialize(LongFloatsCol col, DataInputStream input) throws IOException {
-    col.colId = input.readLong();
-    for (int i = 0; i < col.colElems.length; i++) {
-      col.colElems[i] = input.readFloat();
+    @Override
+    public void deserialize(IntLongsCol col, DataInputStream input) throws IOException {
+        col.colId = input.readInt();
+        for (int i = 0; i < col.colElems.length; i++) {
+            col.colElems[i] = input.readLong();
+        }
     }
-  }
 
-  @Override
-  public void deserialize(LongDoublesCol col, DataInputStream input) throws IOException {
-    col.colId = input.readLong();
-    for (int i = 0; i < col.colElems.length; i++) {
-      col.colElems[i] = input.readDouble();
+    @Override
+    public void deserialize(LongFloatsCol col, DataInputStream input) throws IOException {
+        col.colId = input.readLong();
+        for (int i = 0; i < col.colElems.length; i++) {
+            col.colElems[i] = input.readFloat();
+        }
     }
-  }
 
-  @Override
-  public void deserialize(LongIntsCol col, DataInputStream input) throws IOException {
-    col.colId = input.readLong();
-    for (int i = 0; i < col.colElems.length; i++) {
-      col.colElems[i] = input.readInt();
+    @Override
+    public void deserialize(LongDoublesCol col, DataInputStream input) throws IOException {
+        col.colId = input.readLong();
+        for (int i = 0; i < col.colElems.length; i++) {
+            col.colElems[i] = input.readDouble();
+        }
     }
-  }
 
-  @Override
-  public void deserialize(LongLongsCol col, DataInputStream input) throws IOException {
-    col.colId = input.readLong();
-    for (int i = 0; i < col.colElems.length; i++) {
-      col.colElems[i] = input.readLong();
+    @Override
+    public void deserialize(LongIntsCol col, DataInputStream input) throws IOException {
+        col.colId = input.readLong();
+        for (int i = 0; i < col.colElems.length; i++) {
+            col.colElems[i] = input.readInt();
+        }
     }
-  }
+
+    @Override
+    public void deserialize(LongLongsCol col, DataInputStream input) throws IOException {
+        col.colId = input.readLong();
+        for (int i = 0; i < col.colElems.length; i++) {
+            col.colElems[i] = input.readLong();
+        }
+    }
 }

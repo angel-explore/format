@@ -23,59 +23,59 @@ package com.tencent.angel.model;
  */
 public class MatrixLoadContext {
 
-  /**
-   * Matrix name
-   */
-  private final String matrixName;
+    /**
+     * Matrix name
+     */
+    private final String matrixName;
 
-  /**
-   * Matrix load path
-   */
-  private String loadPath;
+    /**
+     * Matrix load path
+     */
+    private String loadPath;
 
-  /**
-   * Create a new MatrixLoadContext
-   *
-   * @param matrixName matrix name
-   */
-  public MatrixLoadContext(String matrixName, String loadPath) {
-    this.matrixName = matrixName;
-    this.loadPath = loadPath;
-  }
+    /**
+     * Create a new MatrixLoadContext
+     *
+     * @param matrixName matrix name
+     */
+    public MatrixLoadContext(String matrixName, String loadPath) {
+        this.matrixName = matrixName;
+        this.loadPath = loadPath;
+    }
 
-  /**
-   * Create a new MatrixLoadContext
-   *
-   * @param matrixName matrix name
-   */
-  public MatrixLoadContext(String matrixName) {
-    this(matrixName, null);
-  }
+    /**
+     * Create a new MatrixLoadContext
+     *
+     * @param matrixName matrix name
+     */
+    public MatrixLoadContext(String matrixName) {
+        this(matrixName, null);
+    }
 
-  /**
-   * Get matrix name
-   *
-   * @return matrix name
-   */
-  public String getMatrixName() {
-    return matrixName;
-  }
+    /**
+     * Get matrix name
+     *
+     * @return matrix name
+     */
+    public String getMatrixName() {
+        return matrixName;
+    }
 
-  /**
-   * Get matrix load path
-   *
-   * @return matrix load path
-   */
-  public String getLoadPath() {
-    return loadPath;
-  }
+    /**
+     * Get matrix load path
+     *
+     * @return matrix load path
+     */
+    public String getLoadPath() {
+        return loadPath;
+    }
 
-  /**
-   * Set load path
-   *
-   * @param loadPath load path
-   */
-  public void setLoadPath(String loadPath) {
-    this.loadPath = loadPath;
-  }
+    /**
+     * Set load path
+     *
+     * @param loadPath load path
+     */
+    public void setLoadPath(String loadPath) {
+        this.loadPath = loadPath;
+    }
 }

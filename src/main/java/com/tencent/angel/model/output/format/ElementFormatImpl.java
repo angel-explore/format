@@ -21,9 +21,9 @@ import org.apache.hadoop.conf.Configuration;
 
 public abstract class ElementFormatImpl implements ElementFormat {
 
-  protected final Configuration conf;
+    protected final Configuration conf;
 
-  public ElementFormatImpl(Configuration conf) {
-    this.conf = conf;
-  }
+    public ElementFormatImpl(Configuration conf) {
+        this.conf = conf;
+    }
 }

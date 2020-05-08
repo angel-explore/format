@@ -18,5 +18,5 @@
 package com.tencent.angel.model.io;
 
 enum ACTION {
-  LOAD, SAVE
+    LOAD, SAVE
 }

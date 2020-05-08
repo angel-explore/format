@@ -21,9 +21,9 @@ import org.apache.hadoop.conf.Configuration;
 
 public abstract class RowFormatImpl implements RowFormat {
 
-  protected final Configuration conf;
+    protected final Configuration conf;
 
-  public RowFormatImpl(Configuration conf) {
-    this.conf = conf;
-  }
+    public RowFormatImpl(Configuration conf) {
+        this.conf = conf;
+    }
 }

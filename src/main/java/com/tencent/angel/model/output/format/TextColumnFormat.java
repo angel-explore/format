@@ -17,230 +17,224 @@
 
 package com.tencent.angel.model.output.format;
 
-import com.tencent.angel.model.output.element.IntDoublesCol;
-import com.tencent.angel.model.output.element.IntFloatsCol;
-import com.tencent.angel.model.output.element.IntIntsCol;
-import com.tencent.angel.model.output.element.IntLongsCol;
-import com.tencent.angel.model.output.element.LongDoublesCol;
-import com.tencent.angel.model.output.element.LongFloatsCol;
-import com.tencent.angel.model.output.element.LongIntsCol;
-import com.tencent.angel.model.output.element.LongLongsCol;
+import com.tencent.angel.model.output.element.*;
+import org.apache.hadoop.conf.Configuration;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import org.apache.hadoop.conf.Configuration;
 
 /**
  * Text format: column id + sep + row1 element + sep + row2 element + sep + ...
  */
 public class TextColumnFormat extends ColumnFormatImpl {
 
-  private final String defaultSet = ",";
-  public final static String sepParam = "text.format.filed.sep";
-  private final String sep;
+    private final String defaultSet = ",";
+    public final static String sepParam = "text.format.filed.sep";
+    private final String sep;
 
-  public TextColumnFormat(Configuration conf) {
-    super(conf);
-    sep = conf.get(sepParam, defaultSet);
-  }
+    public TextColumnFormat(Configuration conf) {
+        super(conf);
+        sep = conf.get(sepParam, defaultSet);
+    }
 
-  @Override
-  public void save(IntFloatsCol col, DataOutputStream output) throws IOException {
-    StringBuilder sb = new StringBuilder();
-    sb.append(col.colId);
-    sb.append(sep);
-    for (int i = 0; i < col.colElems.length; i++) {
-      sb.append(col.colElems[i]);
-      if (i < col.colElems.length - 1) {
+    @Override
+    public void save(IntFloatsCol col, DataOutputStream output) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        sb.append(col.colId);
         sb.append(sep);
-      }
+        for (int i = 0; i < col.colElems.length; i++) {
+            sb.append(col.colElems[i]);
+            if (i < col.colElems.length - 1) {
+                sb.append(sep);
+            }
+        }
+        sb.append("\n");
+        output.writeBytes(sb.toString());
     }
-    sb.append("\n");
-    output.writeBytes(sb.toString());
-  }
 
-  @Override
-  public void save(IntDoublesCol col, DataOutputStream output) throws IOException {
-    StringBuilder sb = new StringBuilder();
-    sb.append(col.colId);
-    sb.append(sep);
-    for (int i = 0; i < col.colElems.length; i++) {
-      sb.append(col.colElems[i]);
-      if (i < col.colElems.length - 1) {
+    @Override
+    public void save(IntDoublesCol col, DataOutputStream output) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        sb.append(col.colId);
         sb.append(sep);
-      }
+        for (int i = 0; i < col.colElems.length; i++) {
+            sb.append(col.colElems[i]);
+            if (i < col.colElems.length - 1) {
+                sb.append(sep);
+            }
+        }
+        sb.append("\n");
+        output.writeBytes(sb.toString());
     }
-    sb.append("\n");
-    output.writeBytes(sb.toString());
-  }
 
-  @Override
-  public void save(IntIntsCol col, DataOutputStream output) throws IOException {
-    StringBuilder sb = new StringBuilder();
-    sb.append(col.colId);
-    sb.append(sep);
-    for (int i = 0; i < col.colElems.length; i++) {
-      sb.append(col.colElems[i]);
-      if (i < col.colElems.length - 1) {
+    @Override
+    public void save(IntIntsCol col, DataOutputStream output) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        sb.append(col.colId);
         sb.append(sep);
-      }
+        for (int i = 0; i < col.colElems.length; i++) {
+            sb.append(col.colElems[i]);
+            if (i < col.colElems.length - 1) {
+                sb.append(sep);
+            }
+        }
+        sb.append("\n");
+        output.writeBytes(sb.toString());
     }
-    sb.append("\n");
-    output.writeBytes(sb.toString());
-  }
 
-  @Override
-  public void save(IntLongsCol col, DataOutputStream output) throws IOException {
-    StringBuilder sb = new StringBuilder();
-    sb.append(col.colId);
-    sb.append(sep);
-    for (int i = 0; i < col.colElems.length; i++) {
-      sb.append(col.colElems[i]);
-      if (i < col.colElems.length - 1) {
+    @Override
+    public void save(IntLongsCol col, DataOutputStream output) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        sb.append(col.colId);
         sb.append(sep);
-      }
+        for (int i = 0; i < col.colElems.length; i++) {
+            sb.append(col.colElems[i]);
+            if (i < col.colElems.length - 1) {
+                sb.append(sep);
+            }
+        }
+        sb.append("\n");
+        output.writeBytes(sb.toString());
     }
-    sb.append("\n");
-    output.writeBytes(sb.toString());
-  }
 
-  @Override
-  public void save(LongFloatsCol col, DataOutputStream output) throws IOException {
-    StringBuilder sb = new StringBuilder();
-    sb.append(col.colId);
-    sb.append(sep);
-    for (int i = 0; i < col.colElems.length; i++) {
-      sb.append(col.colElems[i]);
-      if (i < col.colElems.length - 1) {
+    @Override
+    public void save(LongFloatsCol col, DataOutputStream output) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        sb.append(col.colId);
         sb.append(sep);
-      }
+        for (int i = 0; i < col.colElems.length; i++) {
+            sb.append(col.colElems[i]);
+            if (i < col.colElems.length - 1) {
+                sb.append(sep);
+            }
+        }
+        sb.append("\n");
+        output.writeBytes(sb.toString());
     }
-    sb.append("\n");
-    output.writeBytes(sb.toString());
-  }
 
-  @Override
-  public void save(LongDoublesCol col, DataOutputStream output) throws IOException {
-    StringBuilder sb = new StringBuilder();
-    sb.append(col.colId);
-    sb.append(sep);
-    for (int i = 0; i < col.colElems.length; i++) {
-      sb.append(col.colElems[i]);
-      if (i < col.colElems.length - 1) {
+    @Override
+    public void save(LongDoublesCol col, DataOutputStream output) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        sb.append(col.colId);
         sb.append(sep);
-      }
+        for (int i = 0; i < col.colElems.length; i++) {
+            sb.append(col.colElems[i]);
+            if (i < col.colElems.length - 1) {
+                sb.append(sep);
+            }
+        }
+        sb.append("\n");
+        output.writeBytes(sb.toString());
     }
-    sb.append("\n");
-    output.writeBytes(sb.toString());
-  }
 
-  @Override
-  public void save(LongIntsCol col, DataOutputStream output) throws IOException {
-    StringBuilder sb = new StringBuilder();
-    sb.append(col.colId);
-    sb.append(sep);
-    for (int i = 0; i < col.colElems.length; i++) {
-      sb.append(col.colElems[i]);
-      if (i < col.colElems.length - 1) {
+    @Override
+    public void save(LongIntsCol col, DataOutputStream output) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        sb.append(col.colId);
         sb.append(sep);
-      }
+        for (int i = 0; i < col.colElems.length; i++) {
+            sb.append(col.colElems[i]);
+            if (i < col.colElems.length - 1) {
+                sb.append(sep);
+            }
+        }
+        sb.append("\n");
+        output.writeBytes(sb.toString());
     }
-    sb.append("\n");
-    output.writeBytes(sb.toString());
-  }
 
-  @Override
-  public void save(LongLongsCol col, DataOutputStream output) throws IOException {
-    StringBuilder sb = new StringBuilder();
-    sb.append(col.colId);
-    sb.append(sep);
-    for (int i = 0; i < col.colElems.length; i++) {
-      sb.append(col.colElems[i]);
-      if (i < col.colElems.length - 1) {
+    @Override
+    public void save(LongLongsCol col, DataOutputStream output) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        sb.append(col.colId);
         sb.append(sep);
-      }
+        for (int i = 0; i < col.colElems.length; i++) {
+            sb.append(col.colElems[i]);
+            if (i < col.colElems.length - 1) {
+                sb.append(sep);
+            }
+        }
+        sb.append("\n");
+        output.writeBytes(sb.toString());
     }
-    sb.append("\n");
-    output.writeBytes(sb.toString());
-  }
 
-  @Override
-  public void load(IntFloatsCol col, DataInputStream input) throws IOException {
-    String line = input.readLine();
-    String[] subStrs = line.split(sep);
-    col.colId = Integer.valueOf(subStrs[0]);
-    for (int i = 0; i < col.colElems.length; i++) {
-      col.colElems[i] = Float.valueOf(subStrs[i + 1]);
+    @Override
+    public void load(IntFloatsCol col, DataInputStream input) throws IOException {
+        String line = input.readLine();
+        String[] subStrs = line.split(sep);
+        col.colId = Integer.valueOf(subStrs[0]);
+        for (int i = 0; i < col.colElems.length; i++) {
+            col.colElems[i] = Float.valueOf(subStrs[i + 1]);
+        }
     }
-  }
 
-  @Override
-  public void load(IntDoublesCol col, DataInputStream input) throws IOException {
-    String line = input.readLine();
-    String[] subStrs = line.split(sep);
-    col.colId = Integer.valueOf(subStrs[0]);
-    for (int i = 0; i < col.colElems.length; i++) {
-      col.colElems[i] = Double.valueOf(subStrs[i + 1]);
+    @Override
+    public void load(IntDoublesCol col, DataInputStream input) throws IOException {
+        String line = input.readLine();
+        String[] subStrs = line.split(sep);
+        col.colId = Integer.valueOf(subStrs[0]);
+        for (int i = 0; i < col.colElems.length; i++) {
+            col.colElems[i] = Double.valueOf(subStrs[i + 1]);
+        }
     }
-  }
 
-  @Override
-  public void load(IntIntsCol col, DataInputStream input) throws IOException {
-    String line = input.readLine();
-    String[] subStrs = line.split(sep);
-    col.colId = Integer.valueOf(subStrs[0]);
-    for (int i = 0; i < col.colElems.length; i++) {
-      col.colElems[i] = Integer.valueOf(subStrs[i + 1]);
+    @Override
+    public void load(IntIntsCol col, DataInputStream input) throws IOException {
+        String line = input.readLine();
+        String[] subStrs = line.split(sep);
+        col.colId = Integer.valueOf(subStrs[0]);
+        for (int i = 0; i < col.colElems.length; i++) {
+            col.colElems[i] = Integer.valueOf(subStrs[i + 1]);
+        }
     }
-  }
 
-  @Override
-  public void load(IntLongsCol col, DataInputStream input) throws IOException {
-    String line = input.readLine();
-    String[] subStrs = line.split(sep);
-    col.colId = Integer.valueOf(subStrs[0]);
-    for (int i = 0; i < col.colElems.length; i++) {
-      col.colElems[i] = Long.valueOf(subStrs[i + 1]);
+    @Override
+    public void load(IntLongsCol col, DataInputStream input) throws IOException {
+        String line = input.readLine();
+        String[] subStrs = line.split(sep);
+        col.colId = Integer.valueOf(subStrs[0]);
+        for (int i = 0; i < col.colElems.length; i++) {
+            col.colElems[i] = Long.valueOf(subStrs[i + 1]);
+        }
     }
-  }
 
-  @Override
-  public void load(LongFloatsCol col, DataInputStream input) throws IOException {
-    String line = input.readLine();
-    String[] subStrs = line.split(sep);
-    col.colId = Long.valueOf(subStrs[0]);
-    for (int i = 0; i < col.colElems.length; i++) {
-      col.colElems[i] = Float.valueOf(subStrs[i + 1]);
+    @Override
+    public void load(LongFloatsCol col, DataInputStream input) throws IOException {
+        String line = input.readLine();
+        String[] subStrs = line.split(sep);
+        col.colId = Long.valueOf(subStrs[0]);
+        for (int i = 0; i < col.colElems.length; i++) {
+            col.colElems[i] = Float.valueOf(subStrs[i + 1]);
+        }
     }
-  }
 
-  @Override
-  public void load(LongDoublesCol col, DataInputStream input) throws IOException {
-    String line = input.readLine();
-    String[] subStrs = line.split(sep);
-    col.colId = Long.valueOf(subStrs[0]);
-    for (int i = 0; i < col.colElems.length; i++) {
-      col.colElems[i] = Double.valueOf(subStrs[i + 1]);
+    @Override
+    public void load(LongDoublesCol col, DataInputStream input) throws IOException {
+        String line = input.readLine();
+        String[] subStrs = line.split(sep);
+        col.colId = Long.valueOf(subStrs[0]);
+        for (int i = 0; i < col.colElems.length; i++) {
+            col.colElems[i] = Double.valueOf(subStrs[i + 1]);
+        }
     }
-  }
 
-  @Override
-  public void load(LongIntsCol col, DataInputStream input) throws IOException {
-    String line = input.readLine();
-    String[] subStrs = line.split(sep);
-    col.colId = Long.valueOf(subStrs[0]);
-    for (int i = 0; i < col.colElems.length; i++) {
-      col.colElems[i] = Integer.valueOf(subStrs[i + 1]);
+    @Override
+    public void load(LongIntsCol col, DataInputStream input) throws IOException {
+        String line = input.readLine();
+        String[] subStrs = line.split(sep);
+        col.colId = Long.valueOf(subStrs[0]);
+        for (int i = 0; i < col.colElems.length; i++) {
+            col.colElems[i] = Integer.valueOf(subStrs[i + 1]);
+        }
     }
-  }
 
-  @Override
-  public void load(LongLongsCol col, DataInputStream input) throws IOException {
-    String line = input.readLine();
-    String[] subStrs = line.split(sep);
-    col.colId = Long.valueOf(subStrs[0]);
-    for (int i = 0; i < col.colElems.length; i++) {
-      col.colElems[i] = Long.valueOf(subStrs[i + 1]);
+    @Override
+    public void load(LongLongsCol col, DataInputStream input) throws IOException {
+        String line = input.readLine();
+        String[] subStrs = line.split(sep);
+        col.colId = Long.valueOf(subStrs[0]);
+        for (int i = 0; i < col.colElems.length; i++) {
+            col.colElems[i] = Long.valueOf(subStrs[i + 1]);
+        }
     }
-  }
 }

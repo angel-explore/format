@@ -18,6 +18,7 @@
 package com.tencent.angel.model;
 
 import com.tencent.angel.ml.math2.matrix.Matrix;
+
 import java.util.Map;
 
 /**
@@ -25,36 +26,36 @@ import java.util.Map;
  */
 public class ModelLocalLoadResult {
 
-  /**
-   * Matrix name to matrix map
-   */
-  private final Map<String, Matrix> nameToMatrixMap;
+    /**
+     * Matrix name to matrix map
+     */
+    private final Map<String, Matrix> nameToMatrixMap;
 
-  /**
-   * Create new ModelLocalLoadResult
-   *
-   * @param nameToMatrixMap Matrix name to matrix map
-   */
-  public ModelLocalLoadResult(Map<String, Matrix> nameToMatrixMap) {
-    this.nameToMatrixMap = nameToMatrixMap;
-  }
+    /**
+     * Create new ModelLocalLoadResult
+     *
+     * @param nameToMatrixMap Matrix name to matrix map
+     */
+    public ModelLocalLoadResult(Map<String, Matrix> nameToMatrixMap) {
+        this.nameToMatrixMap = nameToMatrixMap;
+    }
 
-  /**
-   * Get all model load result
-   *
-   * @return matrix name to matrix map
-   */
-  public Map<String, Matrix> getNameToMatrixMap() {
-    return nameToMatrixMap;
-  }
+    /**
+     * Get all model load result
+     *
+     * @return matrix name to matrix map
+     */
+    public Map<String, Matrix> getNameToMatrixMap() {
+        return nameToMatrixMap;
+    }
 
-  /**
-   * Get matrix load result
-   *
-   * @param name matrix name
-   * @return matrix data
-   */
-  public Matrix getMatrix(String name) {
-    return nameToMatrixMap.get(name);
-  }
+    /**
+     * Get matrix load result
+     *
+     * @param name matrix name
+     * @return matrix data
+     */
+    public Matrix getMatrix(String name) {
+        return nameToMatrixMap.get(name);
+    }
 }

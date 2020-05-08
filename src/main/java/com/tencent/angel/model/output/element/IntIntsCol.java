@@ -22,12 +22,12 @@ package com.tencent.angel.model.output.element;
  */
 public class IntIntsCol {
 
-  public int colId;
-  public int[] colElems;
+    public int colId;
+    public int[] colElems;
 
-  public IntIntsCol(int colId, int[] colElems) {
-    this.colId = colId;
-    this.colElems = colElems;
-  }
+    public IntIntsCol(int colId, int[] colElems) {
+        this.colId = colId;
+        this.colElems = colElems;
+    }
 }
 

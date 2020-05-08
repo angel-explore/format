@@ -17,105 +17,99 @@
 
 package com.tencent.angel.model.output.serde;
 
-import com.tencent.angel.model.output.element.IntDoubleElement;
-import com.tencent.angel.model.output.element.IntFloatElement;
-import com.tencent.angel.model.output.element.IntIntElement;
-import com.tencent.angel.model.output.element.IntLongElement;
-import com.tencent.angel.model.output.element.LongDoubleElement;
-import com.tencent.angel.model.output.element.LongFloatElement;
-import com.tencent.angel.model.output.element.LongIntElement;
-import com.tencent.angel.model.output.element.LongLongElement;
+import com.tencent.angel.model.output.element.*;
+import org.apache.hadoop.conf.Configuration;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import org.apache.hadoop.conf.Configuration;
 
 /**
  * Text format: values without index
  */
 public class ValueTextSerDe extends ElementSerDeImpl {
 
-  public ValueTextSerDe(Configuration conf) {
-    super(conf);
-  }
+    public ValueTextSerDe(Configuration conf) {
+        super(conf);
+    }
 
-  @Override
-  public void serialize(IntFloatElement element, DataOutputStream out) throws IOException {
-    out.writeBytes(String.valueOf(element.value) + "\n");
-  }
+    @Override
+    public void serialize(IntFloatElement element, DataOutputStream out) throws IOException {
+        out.writeBytes(String.valueOf(element.value) + "\n");
+    }
 
-  @Override
-  public void serialize(IntDoubleElement element, DataOutputStream out) throws IOException {
-    out.writeBytes(String.valueOf(element.value) + "\n");
-  }
+    @Override
+    public void serialize(IntDoubleElement element, DataOutputStream out) throws IOException {
+        out.writeBytes(String.valueOf(element.value) + "\n");
+    }
 
-  @Override
-  public void serialize(IntIntElement element, DataOutputStream out) throws IOException {
-    out.writeBytes(String.valueOf(element.value) + "\n");
-  }
+    @Override
+    public void serialize(IntIntElement element, DataOutputStream out) throws IOException {
+        out.writeBytes(String.valueOf(element.value) + "\n");
+    }
 
-  @Override
-  public void serialize(IntLongElement element, DataOutputStream out) throws IOException {
-    out.writeBytes(String.valueOf(element.value) + "\n");
-  }
+    @Override
+    public void serialize(IntLongElement element, DataOutputStream out) throws IOException {
+        out.writeBytes(String.valueOf(element.value) + "\n");
+    }
 
-  @Override
-  public void serialize(LongFloatElement element, DataOutputStream out) throws IOException {
-    out.writeBytes(String.valueOf(element.value) + "\n");
-  }
+    @Override
+    public void serialize(LongFloatElement element, DataOutputStream out) throws IOException {
+        out.writeBytes(String.valueOf(element.value) + "\n");
+    }
 
-  @Override
-  public void serialize(LongDoubleElement element, DataOutputStream out) throws IOException {
-    out.writeBytes(String.valueOf(element.value) + "\n");
-  }
+    @Override
+    public void serialize(LongDoubleElement element, DataOutputStream out) throws IOException {
+        out.writeBytes(String.valueOf(element.value) + "\n");
+    }
 
-  @Override
-  public void serialize(LongIntElement element, DataOutputStream out) throws IOException {
-    out.writeBytes(String.valueOf(element.value) + "\n");
-  }
+    @Override
+    public void serialize(LongIntElement element, DataOutputStream out) throws IOException {
+        out.writeBytes(String.valueOf(element.value) + "\n");
+    }
 
-  @Override
-  public void serialize(LongLongElement element, DataOutputStream out) throws IOException {
-    out.writeBytes(String.valueOf(element.value) + "\n");
-  }
+    @Override
+    public void serialize(LongLongElement element, DataOutputStream out) throws IOException {
+        out.writeBytes(String.valueOf(element.value) + "\n");
+    }
 
-  @Override
-  public void deserialize(IntFloatElement element, DataInputStream in) throws IOException {
-    element.value = Float.valueOf(in.readLine());
-  }
+    @Override
+    public void deserialize(IntFloatElement element, DataInputStream in) throws IOException {
+        element.value = Float.valueOf(in.readLine());
+    }
 
-  @Override
-  public void deserialize(IntDoubleElement element, DataInputStream in) throws IOException {
-    element.value = Double.valueOf(in.readLine());
-  }
+    @Override
+    public void deserialize(IntDoubleElement element, DataInputStream in) throws IOException {
+        element.value = Double.valueOf(in.readLine());
+    }
 
-  @Override
-  public void deserialize(IntIntElement element, DataInputStream in) throws IOException {
-    element.value = Integer.valueOf(in.readLine());
-  }
+    @Override
+    public void deserialize(IntIntElement element, DataInputStream in) throws IOException {
+        element.value = Integer.valueOf(in.readLine());
+    }
 
-  @Override
-  public void deserialize(IntLongElement element, DataInputStream in) throws IOException {
-    element.value = Long.valueOf(in.readLine());
-  }
+    @Override
+    public void deserialize(IntLongElement element, DataInputStream in) throws IOException {
+        element.value = Long.valueOf(in.readLine());
+    }
 
-  @Override
-  public void deserialize(LongFloatElement element, DataInputStream in) throws IOException {
-    element.value = Float.valueOf(in.readLine());
-  }
+    @Override
+    public void deserialize(LongFloatElement element, DataInputStream in) throws IOException {
+        element.value = Float.valueOf(in.readLine());
+    }
 
-  @Override
-  public void deserialize(LongDoubleElement element, DataInputStream in) throws IOException {
-    element.value = Double.valueOf(in.readLine());
-  }
+    @Override
+    public void deserialize(LongDoubleElement element, DataInputStream in) throws IOException {
+        element.value = Double.valueOf(in.readLine());
+    }
 
-  @Override
-  public void deserialize(LongIntElement element, DataInputStream in) throws IOException {
-    element.value = Integer.valueOf(in.readLine());
-  }
+    @Override
+    public void deserialize(LongIntElement element, DataInputStream in) throws IOException {
+        element.value = Integer.valueOf(in.readLine());
+    }
 
-  @Override
-  public void deserialize(LongLongElement element, DataInputStream in) throws IOException {
-    element.value = Long.valueOf(in.readLine());
-  }
+    @Override
+    public void deserialize(LongLongElement element, DataInputStream in) throws IOException {
+        element.value = Long.valueOf(in.readLine());
+    }
 }

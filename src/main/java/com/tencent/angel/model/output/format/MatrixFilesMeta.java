@@ -36,123 +36,123 @@ import java.util.concurrent.ConcurrentSkipListMap;
  */
 public class MatrixFilesMeta {
 
-  private static final Log LOG = LogFactory.getLog(MatrixFilesMeta.class);
-  /**
-   * Matrix id
-   */
-  private int matrixId;
+    private static final Log LOG = LogFactory.getLog(MatrixFilesMeta.class);
+    /**
+     * Matrix id
+     */
+    private int matrixId;
 
-  /**
-   * Matrix row type
-   */
-  private int rowType;
+    /**
+     * Matrix row type
+     */
+    private int rowType;
 
-  /**
-   * Row number of matrix
-   */
-  private int row;
+    /**
+     * Row number of matrix
+     */
+    private int row;
 
-  /**
-   * Row number in a block
-   */
-  private int blockRow;
+    /**
+     * Row number in a block
+     */
+    private int blockRow;
 
-  /**
-   * Matrix column number
-   */
-  private long col;
+    /**
+     * Matrix column number
+     */
+    private long col;
 
-  /**
-   * Column number in a block
-   */
-  private long blockCol;
+    /**
+     * Column number in a block
+     */
+    private long blockCol;
 
-  /**
-   * Matrix name
-   */
-  private String matrixName;
+    /**
+     * Matrix name
+     */
+    private String matrixName;
 
-  /**
-   * Format class name
-   */
-  private String formatClassName;
+    /**
+     * Format class name
+     */
+    private String formatClassName;
 
-  /**
-   * Other matrix parameters
-   */
-  private Map<String, String> options;
+    /**
+     * Other matrix parameters
+     */
+    private Map<String, String> options;
 
-  /**
-   * Matrix partition meta
-   */
-  private Map<Integer, MatrixPartitionMeta> partMetas;
+    /**
+     * Matrix partition meta
+     */
+    private Map<Integer, MatrixPartitionMeta> partMetas;
 
-  public static final String FEATURE_INDEX_RANGE_START = "feature.index.range.start";
-  public static final String FEATURE_INDEX_RANGE_END = "feature.index.range.end";
+    public static final String FEATURE_INDEX_RANGE_START = "feature.index.range.start";
+    public static final String FEATURE_INDEX_RANGE_END = "feature.index.range.end";
 
-  /**
-   * Create a MatrixFilesMeta
-   *
-   * @param matrixId matrix id
-   * @param matrixName matrix name
-   * @param rowType row type
-   * @param row row number
-   * @param col cloumn number
-   * @param blockRow row number in a block
-   * @param blockCol column number in a block
-   * @param options other matrix parameters
-   * @param partMetas partition meta
-   */
-  public MatrixFilesMeta(int matrixId, String matrixName, String formatClassName, int rowType,
-      int row, long col, int blockRow, long blockCol,
-      Map<String, String> options,
-      Map<Integer, MatrixPartitionMeta> partMetas) {
-    this.matrixId = matrixId;
-    this.matrixName = matrixName;
-    this.formatClassName = formatClassName;
-    this.rowType = rowType;
-    this.row = row;
-    this.col = col;
-    this.blockRow = blockRow;
-    this.blockCol = blockCol;
-    this.options = options;
-    this.partMetas = partMetas;
-  }
+    /**
+     * Create a MatrixFilesMeta
+     *
+     * @param matrixId   matrix id
+     * @param matrixName matrix name
+     * @param rowType    row type
+     * @param row        row number
+     * @param col        cloumn number
+     * @param blockRow   row number in a block
+     * @param blockCol   column number in a block
+     * @param options    other matrix parameters
+     * @param partMetas  partition meta
+     */
+    public MatrixFilesMeta(int matrixId, String matrixName, String formatClassName, int rowType,
+                           int row, long col, int blockRow, long blockCol,
+                           Map<String, String> options,
+                           Map<Integer, MatrixPartitionMeta> partMetas) {
+        this.matrixId = matrixId;
+        this.matrixName = matrixName;
+        this.formatClassName = formatClassName;
+        this.rowType = rowType;
+        this.row = row;
+        this.col = col;
+        this.blockRow = blockRow;
+        this.blockCol = blockCol;
+        this.options = options;
+        this.partMetas = partMetas;
+    }
 
-  /**
-   * Create a MatrixFilesMeta
-   *
-   * @param matrixId matrix id
-   * @param matrixName matrix name
-   * @param rowType row type
-   * @param row row number
-   * @param col cloumn number
-   * @param blockRow row number in a block
-   * @param blockCol column number in a block
-   * @param options other matrix parameters
-   */
-  public MatrixFilesMeta(int matrixId, String matrixName, String formatClassName, int rowType,
-      int row, long col, int blockRow, long blockCol, Map<String, String> options) {
-    this(matrixId, matrixName, formatClassName, rowType, row, col, blockRow, blockCol,
-        options,
-        new ConcurrentSkipListMap<>());
-  }
+    /**
+     * Create a MatrixFilesMeta
+     *
+     * @param matrixId   matrix id
+     * @param matrixName matrix name
+     * @param rowType    row type
+     * @param row        row number
+     * @param col        cloumn number
+     * @param blockRow   row number in a block
+     * @param blockCol   column number in a block
+     * @param options    other matrix parameters
+     */
+    public MatrixFilesMeta(int matrixId, String matrixName, String formatClassName, int rowType,
+                           int row, long col, int blockRow, long blockCol, Map<String, String> options) {
+        this(matrixId, matrixName, formatClassName, rowType, row, col, blockRow, blockCol,
+                options,
+                new ConcurrentSkipListMap<>());
+    }
 
-  /**
-   * Create a empty MatrixFilesMeta
-   */
-  public MatrixFilesMeta() {
-    this(-1, "", "", -1, -1, -1, -1, -1, new HashMap<>(), new ConcurrentSkipListMap<>());
-  }
+    /**
+     * Create a empty MatrixFilesMeta
+     */
+    public MatrixFilesMeta() {
+        this(-1, "", "", -1, -1, -1, -1, -1, new HashMap<>(), new ConcurrentSkipListMap<>());
+    }
 
-  /**
-   * Merge server matrix meta to this
-   *
-   * @param meta server matrix meta
-   */
-  public void merge(PSMatrixFilesMeta meta) {
-    partMetas.putAll(meta.getPartMetas());
-  }
+    /**
+     * Merge server matrix meta to this
+     *
+     * @param meta server matrix meta
+     */
+    public void merge(PSMatrixFilesMeta meta) {
+        partMetas.putAll(meta.getPartMetas());
+    }
 
   /*
   public void write(DataOutputStream output) throws IOException {
@@ -210,321 +210,321 @@ public class MatrixFilesMeta {
     }
   }*/
 
-  public void write(DataOutputStream output) throws IOException {
-    try {
-      JSONObject jsonObject = new JSONObject();
-      jsonObject.put("matrixId", matrixId);
-      jsonObject.put("matrixName", matrixName);
-      jsonObject.put("formatClassName", formatClassName);
-      jsonObject.put("rowType", rowType);
-      jsonObject.put("row", row);
-      jsonObject.put("col", col);
-      jsonObject.put("blockRow", blockRow);
-      jsonObject.put("blockCol", blockCol);
-      jsonObject.put("options", options);
-      Map<Integer, JSONObject> jsonMap = new ConcurrentSkipListMap<>();
-      for (Map.Entry<Integer, MatrixPartitionMeta> partEntry : partMetas.entrySet()) {
-        JSONObject parJsonOnbect = new JSONObject();
-        partEntry.getValue().write(parJsonOnbect);
-        jsonMap.put(partEntry.getKey(), parJsonOnbect);
-      }
-      jsonObject.put("partMetas", jsonMap);
-      byte[] b = jsonObject.toString().getBytes("utf-8");
-      output.writeInt(b.length);
-      output.write(b);
-    } catch (Throwable e) {
-      throw new IOException(e);
-    }
-  }
-
-  public void read(DataInputStream input) throws IOException {
-    try {
-      int length = input.readInt();
-      byte[] b = new byte[length];
-      input.readFully(b);
-      String js = new String(b, "utf-8");
-      JSONObject jsonObject = new JSONObject(js);
-      matrixId = jsonObject.getInt("matrixId");
-      matrixName = jsonObject.getString("matrixName");
-      formatClassName = jsonObject.getString("formatClassName");
-      rowType = jsonObject.getInt("rowType");
-      row = jsonObject.getInt("row");
-      col = jsonObject.getLong("col");
-      blockRow = jsonObject.getInt("blockRow");
-      blockCol = jsonObject.getLong("blockCol");
-      options = new HashMap<>();
-      JSONObject optObject = (JSONObject) jsonObject.get("options");
-      Iterator<String> optKeys = optObject.keys();
-      String key;
-      String value;
-      while (optKeys.hasNext()) {
-        key = optKeys.next();
-        value = optObject.getString(key);
-        options.put(key, value);
-      }
-      partMetas = new TreeMap<>();
-      JSONObject parObject = (JSONObject) jsonObject.get("partMetas");
-      Iterator<String> parKeys = parObject.keys();
-      while (parKeys.hasNext()) {
-        key = parKeys.next();
-        MatrixPartitionMeta partMeta = new MatrixPartitionMeta();
-        JSONObject jb = (JSONObject) parObject.get(key);
-        partMeta.read(jb);
-        partMetas.put(partMeta.getPartId(), partMeta);
-      }
-    } catch (Throwable e) {
-      throw new IOException(e);
-    }
-  }
-
-
-  /**
-   * Get matrix id
-   *
-   * @return matrix id
-   */
-  public int getMatrixId() {
-    return matrixId;
-  }
-
-  /**
-   * Set matrix id
-   *
-   * @param matrixId matrix id
-   */
-  public void setMatrixId(int matrixId) {
-    this.matrixId = matrixId;
-  }
-
-  /**
-   * Get row type
-   *
-   * @return row type
-   */
-  public int getRowType() {
-    return rowType;
-  }
-
-  /**
-   * Set row type
-   *
-   * @param rowType row type
-   */
-  public void setRowType(int rowType) {
-    this.rowType = rowType;
-  }
-
-  /**
-   * Get row number of matrix
-   *
-   * @return row number of matrix
-   */
-  public int getRow() {
-    return row;
-  }
-
-  /**
-   * Set row number of matrix
-   *
-   * @param row row number of matrix
-   */
-  public void setRow(int row) {
-    this.row = row;
-  }
-
-  /**
-   * Get row number in matrix block
-   *
-   * @return row number in matrix block
-   */
-  public int getBlockRow() {
-    return blockRow;
-  }
-
-  /**
-   * Set row number in matrix block
-   *
-   * @param blockRow row number in matrix block
-   */
-  public void setBlockRow(int blockRow) {
-    this.blockRow = blockRow;
-  }
-
-  /**
-   * Get column number of matrix
-   *
-   * @return column number of matrix
-   */
-  public long getCol() {
-    return col;
-  }
-
-  /**
-   * Set column number of matrix
-   *
-   * @param col column number of matrix
-   */
-  public void setCol(long col) {
-    this.col = col;
-  }
-
-  /**
-   * Get column number in matrix block
-   *
-   * @return column number in matrix block
-   */
-  public long getBlockCol() {
-    return blockCol;
-  }
-
-  /**
-   * Set column number in matrix block
-   *
-   * @param blockCol column number in matrix block
-   */
-  public void setBlockCol(long blockCol) {
-    this.blockCol = blockCol;
-  }
-
-  /**
-   * Get matrix name
-   *
-   * @return matrix name
-   */
-  public String getMatrixName() {
-    return matrixName;
-  }
-
-  /**
-   * Set matrix name
-   *
-   * @param matrixName matrix name
-   */
-  public void setMatrixName(String matrixName) {
-    this.matrixName = matrixName;
-  }
-
-  /**
-   * Get format class name
-   *
-   * @return format class name
-   */
-  public String getFormatClassName() {
-    return formatClassName;
-  }
-
-  /**
-   * Set format class name
-   *
-   * @param formatClassName format class name
-   */
-  public void setFormatClassName(String formatClassName) {
-    this.formatClassName = formatClassName;
-  }
-
-  /**
-   * Get matrix other parameters
-   *
-   * @return matrix other parameters
-   */
-  public Map<String, String> getOptions() {
-    return options;
-  }
-
-  /**
-   * Set matrix other parameters
-   *
-   * @param options matrix other parameters
-   */
-  public void setOptions(Map<String, String> options) {
-    this.options = options;
-  }
-
-  /**
-   * Get matrix partition meta
-   *
-   * @return matrix partition meta
-   */
-  public Map<Integer, MatrixPartitionMeta> getPartMetas() {
-    return partMetas;
-  }
-
-  /**
-   * Get Model partition meta use part id
-   *
-   * @param partId partition index
-   * @return Model partition meta
-   */
-  public MatrixPartitionMeta getPartMeta(int partId) {
-    return partMetas.get(partId);
-  }
-
-  /**
-   * Get feature index range start
-   *
-   * @return feature index range start
-   */
-  public long getFeatureIndexStart() {
-    if (options.containsKey(FEATURE_INDEX_RANGE_START)) {
-      return Long.valueOf(options.get(FEATURE_INDEX_RANGE_START));
-    } else {
-      return -1;
-    }
-  }
-
-  /**
-   * Get feature index range end
-   *
-   * @return feature index range end
-   */
-  public long getFeatureIndexEnd() {
-    if (options.containsKey(FEATURE_INDEX_RANGE_END)) {
-      return Long.valueOf(options.get(FEATURE_INDEX_RANGE_END));
-    } else {
-      return -1;
-    }
-  }
-
-  /**
-   * Set feature index range start
-   *
-   * @param start feature index range start
-   */
-  public void setFeatureIndexStart(long start) {
-    options.put(FEATURE_INDEX_RANGE_START, String.valueOf(start));
-  }
-
-  /**
-   * Set feature index range end
-   *
-   * @param end feature index range end
-   */
-  public void setFeatureIndexEnd(long end) {
-    options.put(FEATURE_INDEX_RANGE_END, String.valueOf(end));
-  }
-
-  @Override
-  public String toString() {
-    return "MatrixFilesMeta{" + "matrixId=" + matrixId + ", rowType=" + rowType + ", row=" + row
-        + ", blockRow=" + blockRow + ", col=" + col + ", blockCol=" + blockCol + ", matrixName='"
-        + matrixName  + "], partMetas=[" + partMetasString() + "]}";
-  }
-
-  private String partMetasString() {
-    if (partMetas == null || partMetas.isEmpty()) {
-      return "";
+    public void write(DataOutputStream output) throws IOException {
+        try {
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("matrixId", matrixId);
+            jsonObject.put("matrixName", matrixName);
+            jsonObject.put("formatClassName", formatClassName);
+            jsonObject.put("rowType", rowType);
+            jsonObject.put("row", row);
+            jsonObject.put("col", col);
+            jsonObject.put("blockRow", blockRow);
+            jsonObject.put("blockCol", blockCol);
+            jsonObject.put("options", options);
+            Map<Integer, JSONObject> jsonMap = new ConcurrentSkipListMap<>();
+            for (Map.Entry<Integer, MatrixPartitionMeta> partEntry : partMetas.entrySet()) {
+                JSONObject parJsonOnbect = new JSONObject();
+                partEntry.getValue().write(parJsonOnbect);
+                jsonMap.put(partEntry.getKey(), parJsonOnbect);
+            }
+            jsonObject.put("partMetas", jsonMap);
+            byte[] b = jsonObject.toString().getBytes("utf-8");
+            output.writeInt(b.length);
+            output.write(b);
+        } catch (Throwable e) {
+            throw new IOException(e);
+        }
     }
 
-    StringBuilder sb = new StringBuilder();
-    boolean first = true;
-    for (Map.Entry<Integer, MatrixPartitionMeta> entry : partMetas.entrySet()) {
-      if (first) {
-        first = false;
-      } else {
-        sb.append(";");
-      }
-      sb.append("" + entry.getKey() + ":" + entry.getValue());
+    public void read(DataInputStream input) throws IOException {
+        try {
+            int length = input.readInt();
+            byte[] b = new byte[length];
+            input.readFully(b);
+            String js = new String(b, "utf-8");
+            JSONObject jsonObject = new JSONObject(js);
+            matrixId = jsonObject.getInt("matrixId");
+            matrixName = jsonObject.getString("matrixName");
+            formatClassName = jsonObject.getString("formatClassName");
+            rowType = jsonObject.getInt("rowType");
+            row = jsonObject.getInt("row");
+            col = jsonObject.getLong("col");
+            blockRow = jsonObject.getInt("blockRow");
+            blockCol = jsonObject.getLong("blockCol");
+            options = new HashMap<>();
+            JSONObject optObject = (JSONObject) jsonObject.get("options");
+            Iterator<String> optKeys = optObject.keys();
+            String key;
+            String value;
+            while (optKeys.hasNext()) {
+                key = optKeys.next();
+                value = optObject.getString(key);
+                options.put(key, value);
+            }
+            partMetas = new TreeMap<>();
+            JSONObject parObject = (JSONObject) jsonObject.get("partMetas");
+            Iterator<String> parKeys = parObject.keys();
+            while (parKeys.hasNext()) {
+                key = parKeys.next();
+                MatrixPartitionMeta partMeta = new MatrixPartitionMeta();
+                JSONObject jb = (JSONObject) parObject.get(key);
+                partMeta.read(jb);
+                partMetas.put(partMeta.getPartId(), partMeta);
+            }
+        } catch (Throwable e) {
+            throw new IOException(e);
+        }
     }
-    return sb.toString();
-  }
+
+
+    /**
+     * Get matrix id
+     *
+     * @return matrix id
+     */
+    public int getMatrixId() {
+        return matrixId;
+    }
+
+    /**
+     * Set matrix id
+     *
+     * @param matrixId matrix id
+     */
+    public void setMatrixId(int matrixId) {
+        this.matrixId = matrixId;
+    }
+
+    /**
+     * Get row type
+     *
+     * @return row type
+     */
+    public int getRowType() {
+        return rowType;
+    }
+
+    /**
+     * Set row type
+     *
+     * @param rowType row type
+     */
+    public void setRowType(int rowType) {
+        this.rowType = rowType;
+    }
+
+    /**
+     * Get row number of matrix
+     *
+     * @return row number of matrix
+     */
+    public int getRow() {
+        return row;
+    }
+
+    /**
+     * Set row number of matrix
+     *
+     * @param row row number of matrix
+     */
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    /**
+     * Get row number in matrix block
+     *
+     * @return row number in matrix block
+     */
+    public int getBlockRow() {
+        return blockRow;
+    }
+
+    /**
+     * Set row number in matrix block
+     *
+     * @param blockRow row number in matrix block
+     */
+    public void setBlockRow(int blockRow) {
+        this.blockRow = blockRow;
+    }
+
+    /**
+     * Get column number of matrix
+     *
+     * @return column number of matrix
+     */
+    public long getCol() {
+        return col;
+    }
+
+    /**
+     * Set column number of matrix
+     *
+     * @param col column number of matrix
+     */
+    public void setCol(long col) {
+        this.col = col;
+    }
+
+    /**
+     * Get column number in matrix block
+     *
+     * @return column number in matrix block
+     */
+    public long getBlockCol() {
+        return blockCol;
+    }
+
+    /**
+     * Set column number in matrix block
+     *
+     * @param blockCol column number in matrix block
+     */
+    public void setBlockCol(long blockCol) {
+        this.blockCol = blockCol;
+    }
+
+    /**
+     * Get matrix name
+     *
+     * @return matrix name
+     */
+    public String getMatrixName() {
+        return matrixName;
+    }
+
+    /**
+     * Set matrix name
+     *
+     * @param matrixName matrix name
+     */
+    public void setMatrixName(String matrixName) {
+        this.matrixName = matrixName;
+    }
+
+    /**
+     * Get format class name
+     *
+     * @return format class name
+     */
+    public String getFormatClassName() {
+        return formatClassName;
+    }
+
+    /**
+     * Set format class name
+     *
+     * @param formatClassName format class name
+     */
+    public void setFormatClassName(String formatClassName) {
+        this.formatClassName = formatClassName;
+    }
+
+    /**
+     * Get matrix other parameters
+     *
+     * @return matrix other parameters
+     */
+    public Map<String, String> getOptions() {
+        return options;
+    }
+
+    /**
+     * Set matrix other parameters
+     *
+     * @param options matrix other parameters
+     */
+    public void setOptions(Map<String, String> options) {
+        this.options = options;
+    }
+
+    /**
+     * Get matrix partition meta
+     *
+     * @return matrix partition meta
+     */
+    public Map<Integer, MatrixPartitionMeta> getPartMetas() {
+        return partMetas;
+    }
+
+    /**
+     * Get Model partition meta use part id
+     *
+     * @param partId partition index
+     * @return Model partition meta
+     */
+    public MatrixPartitionMeta getPartMeta(int partId) {
+        return partMetas.get(partId);
+    }
+
+    /**
+     * Get feature index range start
+     *
+     * @return feature index range start
+     */
+    public long getFeatureIndexStart() {
+        if (options.containsKey(FEATURE_INDEX_RANGE_START)) {
+            return Long.valueOf(options.get(FEATURE_INDEX_RANGE_START));
+        } else {
+            return -1;
+        }
+    }
+
+    /**
+     * Get feature index range end
+     *
+     * @return feature index range end
+     */
+    public long getFeatureIndexEnd() {
+        if (options.containsKey(FEATURE_INDEX_RANGE_END)) {
+            return Long.valueOf(options.get(FEATURE_INDEX_RANGE_END));
+        } else {
+            return -1;
+        }
+    }
+
+    /**
+     * Set feature index range start
+     *
+     * @param start feature index range start
+     */
+    public void setFeatureIndexStart(long start) {
+        options.put(FEATURE_INDEX_RANGE_START, String.valueOf(start));
+    }
+
+    /**
+     * Set feature index range end
+     *
+     * @param end feature index range end
+     */
+    public void setFeatureIndexEnd(long end) {
+        options.put(FEATURE_INDEX_RANGE_END, String.valueOf(end));
+    }
+
+    @Override
+    public String toString() {
+        return "MatrixFilesMeta{" + "matrixId=" + matrixId + ", rowType=" + rowType + ", row=" + row
+                + ", blockRow=" + blockRow + ", col=" + col + ", blockCol=" + blockCol + ", matrixName='"
+                + matrixName + "], partMetas=[" + partMetasString() + "]}";
+    }
+
+    private String partMetasString() {
+        if (partMetas == null || partMetas.isEmpty()) {
+            return "";
+        }
+
+        StringBuilder sb = new StringBuilder();
+        boolean first = true;
+        for (Map.Entry<Integer, MatrixPartitionMeta> entry : partMetas.entrySet()) {
+            if (first) {
+                first = false;
+            } else {
+                sb.append(";");
+            }
+            sb.append("" + entry.getKey() + ":" + entry.getValue());
+        }
+        return sb.toString();
+    }
 }

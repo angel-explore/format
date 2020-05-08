@@ -22,17 +22,17 @@ package com.tencent.angel.model.output.element;
  */
 public class IntIntElement {
 
-  public int rowId;
-  public int colId;
-  public int value;
+    public int rowId;
+    public int colId;
+    public int value;
 
-  public IntIntElement(int rowId, int colId, int value) {
-    this.rowId = rowId;
-    this.colId = colId;
-    this.value = value;
-  }
+    public IntIntElement(int rowId, int colId, int value) {
+        this.rowId = rowId;
+        this.colId = colId;
+        this.value = value;
+    }
 
-  public IntIntElement() {
-    this(0, 0, 0);
-  }
+    public IntIntElement() {
+        this(0, 0, 0);
+    }
 }

@@ -20,9 +20,9 @@ package com.tencent.angel.model.output.format;
 
 public class ModelFilesConstent {
 
-  public static final String modelMetaFileName = "meta";
-  public static final String psModelMetaFileName = "psmeta";
-  public static final String resultDirName = "result";
-  public static final String separator = "_";
-  public static final String snapshotDirName = "snapshot";
+    public static final String modelMetaFileName = "meta";
+    public static final String psModelMetaFileName = "psmeta";
+    public static final String resultDirName = "result";
+    public static final String separator = "_";
+    public static final String snapshotDirName = "snapshot";
 }

@@ -17,137 +17,131 @@
 
 package com.tencent.angel.model.output.format;
 
-import com.tencent.angel.model.output.element.IntDoubleElement;
-import com.tencent.angel.model.output.element.IntFloatElement;
-import com.tencent.angel.model.output.element.IntIntElement;
-import com.tencent.angel.model.output.element.IntLongElement;
-import com.tencent.angel.model.output.element.LongDoubleElement;
-import com.tencent.angel.model.output.element.LongFloatElement;
-import com.tencent.angel.model.output.element.LongIntElement;
-import com.tencent.angel.model.output.element.LongLongElement;
+import com.tencent.angel.model.output.element.*;
+import org.apache.hadoop.conf.Configuration;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import org.apache.hadoop.conf.Configuration;
 
 /**
  * Binary format: row id, column id and elememt value
  */
 public class RowIdColIdValueBinaryRowFormat extends ElementFormatImpl {
 
-  public RowIdColIdValueBinaryRowFormat(Configuration conf) {
-    super(conf);
-  }
+    public RowIdColIdValueBinaryRowFormat(Configuration conf) {
+        super(conf);
+    }
 
-  @Override
-  public void save(IntFloatElement element, DataOutputStream out) throws IOException {
-    out.writeInt(element.rowId);
-    out.writeInt(element.colId);
-    out.writeFloat(element.value);
-  }
+    @Override
+    public void save(IntFloatElement element, DataOutputStream out) throws IOException {
+        out.writeInt(element.rowId);
+        out.writeInt(element.colId);
+        out.writeFloat(element.value);
+    }
 
-  @Override
-  public void save(IntDoubleElement element, DataOutputStream out) throws IOException {
-    out.writeInt(element.rowId);
-    out.writeInt(element.colId);
-    out.writeDouble(element.value);
-  }
+    @Override
+    public void save(IntDoubleElement element, DataOutputStream out) throws IOException {
+        out.writeInt(element.rowId);
+        out.writeInt(element.colId);
+        out.writeDouble(element.value);
+    }
 
-  @Override
-  public void save(IntIntElement element, DataOutputStream out) throws IOException {
-    out.writeInt(element.rowId);
-    out.writeInt(element.colId);
-    out.writeInt(element.value);
-  }
+    @Override
+    public void save(IntIntElement element, DataOutputStream out) throws IOException {
+        out.writeInt(element.rowId);
+        out.writeInt(element.colId);
+        out.writeInt(element.value);
+    }
 
-  @Override
-  public void save(IntLongElement element, DataOutputStream out) throws IOException {
-    out.writeInt(element.rowId);
-    out.writeInt(element.colId);
-    out.writeLong(element.value);
-  }
+    @Override
+    public void save(IntLongElement element, DataOutputStream out) throws IOException {
+        out.writeInt(element.rowId);
+        out.writeInt(element.colId);
+        out.writeLong(element.value);
+    }
 
-  @Override
-  public void save(LongFloatElement element, DataOutputStream out) throws IOException {
-    out.writeInt(element.rowId);
-    out.writeLong(element.colId);
-    out.writeFloat(element.value);
-  }
+    @Override
+    public void save(LongFloatElement element, DataOutputStream out) throws IOException {
+        out.writeInt(element.rowId);
+        out.writeLong(element.colId);
+        out.writeFloat(element.value);
+    }
 
-  @Override
-  public void save(LongDoubleElement element, DataOutputStream out) throws IOException {
-    out.writeInt(element.rowId);
-    out.writeLong(element.colId);
-    out.writeDouble(element.value);
-  }
+    @Override
+    public void save(LongDoubleElement element, DataOutputStream out) throws IOException {
+        out.writeInt(element.rowId);
+        out.writeLong(element.colId);
+        out.writeDouble(element.value);
+    }
 
-  @Override
-  public void save(LongIntElement element, DataOutputStream out) throws IOException {
-    out.writeInt(element.rowId);
-    out.writeLong(element.colId);
-    out.writeInt(element.value);
-  }
+    @Override
+    public void save(LongIntElement element, DataOutputStream out) throws IOException {
+        out.writeInt(element.rowId);
+        out.writeLong(element.colId);
+        out.writeInt(element.value);
+    }
 
-  @Override
-  public void save(LongLongElement element, DataOutputStream out) throws IOException {
-    out.writeInt(element.rowId);
-    out.writeLong(element.colId);
-    out.writeLong(element.value);
-  }
+    @Override
+    public void save(LongLongElement element, DataOutputStream out) throws IOException {
+        out.writeInt(element.rowId);
+        out.writeLong(element.colId);
+        out.writeLong(element.value);
+    }
 
-  @Override
-  public void load(IntFloatElement element, DataInputStream in) throws IOException {
-    element.rowId = in.readInt();
-    element.colId = in.readInt();
-    element.value = in.readFloat();
-  }
+    @Override
+    public void load(IntFloatElement element, DataInputStream in) throws IOException {
+        element.rowId = in.readInt();
+        element.colId = in.readInt();
+        element.value = in.readFloat();
+    }
 
-  @Override
-  public void load(IntDoubleElement element, DataInputStream in) throws IOException {
-    element.rowId = in.readInt();
-    element.colId = in.readInt();
-    element.value = in.readDouble();
-  }
+    @Override
+    public void load(IntDoubleElement element, DataInputStream in) throws IOException {
+        element.rowId = in.readInt();
+        element.colId = in.readInt();
+        element.value = in.readDouble();
+    }
 
-  @Override
-  public void load(IntIntElement element, DataInputStream in) throws IOException {
-    element.rowId = in.readInt();
-    element.colId = in.readInt();
-    element.value = in.readInt();
-  }
+    @Override
+    public void load(IntIntElement element, DataInputStream in) throws IOException {
+        element.rowId = in.readInt();
+        element.colId = in.readInt();
+        element.value = in.readInt();
+    }
 
-  @Override
-  public void load(IntLongElement element, DataInputStream in) throws IOException {
-    element.rowId = in.readInt();
-    element.colId = in.readInt();
-    element.value = in.readLong();
-  }
+    @Override
+    public void load(IntLongElement element, DataInputStream in) throws IOException {
+        element.rowId = in.readInt();
+        element.colId = in.readInt();
+        element.value = in.readLong();
+    }
 
-  @Override
-  public void load(LongFloatElement element, DataInputStream in) throws IOException {
-    element.rowId = in.readInt();
-    element.colId = in.readLong();
-    element.value = in.readFloat();
-  }
+    @Override
+    public void load(LongFloatElement element, DataInputStream in) throws IOException {
+        element.rowId = in.readInt();
+        element.colId = in.readLong();
+        element.value = in.readFloat();
+    }
 
-  @Override
-  public void load(LongDoubleElement element, DataInputStream in) throws IOException {
-    element.rowId = in.readInt();
-    element.colId = in.readLong();
-    element.value = in.readDouble();
-  }
+    @Override
+    public void load(LongDoubleElement element, DataInputStream in) throws IOException {
+        element.rowId = in.readInt();
+        element.colId = in.readLong();
+        element.value = in.readDouble();
+    }
 
-  @Override
-  public void load(LongIntElement element, DataInputStream in) throws IOException {
-    element.rowId = in.readInt();
-    element.colId = in.readLong();
-    element.value = in.readInt();
-  }
+    @Override
+    public void load(LongIntElement element, DataInputStream in) throws IOException {
+        element.rowId = in.readInt();
+        element.colId = in.readLong();
+        element.value = in.readInt();
+    }
 
-  @Override
-  public void load(LongLongElement element, DataInputStream in) throws IOException {
-    element.rowId = in.readInt();
-    element.colId = in.readLong();
-    element.value = in.readLong();
-  }
+    @Override
+    public void load(LongLongElement element, DataInputStream in) throws IOException {
+        element.rowId = in.readInt();
+        element.colId = in.readLong();
+        element.value = in.readLong();
+    }
 }
