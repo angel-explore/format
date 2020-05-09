@@ -19,7 +19,7 @@
 package com.tencent.angel.model;
 
 /**
- * Matrix load context
+ * 矩阵加载上下文
  */
 public class MatrixLoadContext {
 

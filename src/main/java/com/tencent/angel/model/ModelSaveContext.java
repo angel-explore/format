@@ -22,16 +22,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Model save context
+ * 模型保存上线文
  */
 public class ModelSaveContext {
     /**
-     * Model save directory
+     * 模型保存目录
+     * todo volatile是否可以改成final, 前提是该保存路径是否可变
      */
     private volatile String savePath;
 
     /**
-     * Temp model save directory
+     * 临时模型保存目录
      */
     private volatile String tmpSavePath;
 
@@ -41,7 +42,7 @@ public class ModelSaveContext {
     private volatile boolean isCheckpoint = false;
 
     /**
-     * Matrices save contexts
+     * 矩阵保存上下文
      */
     private final List<MatrixSaveContext> matricesContext;
 
@@ -62,7 +63,7 @@ public class ModelSaveContext {
     }
 
     /**
-     * Create a new ModelSaveContext
+     * 创建一个ModelSaveContext,传入savePath、MatrixSaveContext
      *
      * @param savePath        model save directory
      * @param matricesContext matrices save context

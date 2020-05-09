@@ -22,12 +22,12 @@ import com.tencent.angel.ml.math2.matrix.Matrix;
 import java.util.Map;
 
 /**
- * Model local load result
+ * 模型本地加载结果封装
  */
 public class ModelLocalLoadResult {
 
     /**
-     * Matrix name to matrix map
+     * 矩阵map存储，key: matrix name , value : Matrix
      */
     private final Map<String, Matrix> nameToMatrixMap;
 
