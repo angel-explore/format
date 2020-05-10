@@ -25,6 +25,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /**
+ * 二进制格式，包含特征索引和对应的值。这种格式适合单行模型，例如LR等。
  * Binary format: column id, element value
  */
 public class ColIdValueBinaryRowFormat extends ElementFormatImpl {

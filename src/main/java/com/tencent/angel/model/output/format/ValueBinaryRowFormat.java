@@ -25,6 +25,8 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /**
+ * 二进制格式，只包含模型的值。这种格式只适合单行稠密的模型，
+ * 由于数据文件中没有列号（特征索引），所以需要从模型元数据中获取索引范围。
  * Binary format: values without index
  */
 public class ValueBinaryRowFormat extends ElementFormatImpl {

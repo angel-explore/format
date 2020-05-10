@@ -25,6 +25,9 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /**
+ * 这种格式是以列主序来输出一个矩阵，
+ * 目前只用于Embedding相关的输出（例如DNN，FM等算法中的Embedding层），
+ * 每一个行是一个列。分隔符默认是逗号。
  * Text format: column id + sep + row1 element + sep + row2 element + sep + ...
  */
 public class TextColumnFormat extends ColumnFormatImpl {

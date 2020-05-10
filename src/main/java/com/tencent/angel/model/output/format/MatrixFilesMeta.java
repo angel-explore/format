@@ -32,7 +32,6 @@ import java.util.TreeMap;
 import java.util.concurrent.ConcurrentSkipListMap;
 
 /**
- * Model meta file, it includes matrix properties and partition meta
  * 模型元数据文件，它包含矩阵属性和分区元数据
  */
 public class MatrixFilesMeta {

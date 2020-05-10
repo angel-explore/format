@@ -34,24 +34,25 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Model local load tools
+ * 模型本地加载工具
  */
 public class ModelTools {
 
+
     /**
-     * Load the model to local process memory
+     * 将模型加载到本地进程内存
      *
-     * @param loadContext model load context
-     * @return model load result
+     * @param loadContext 模型加载上线文
+     * @param conf        配置文件
+     * @return ModelLocalLoadResult
+     * @throws IOException
      */
-    public static ModelLocalLoadResult loadToLocal(ModelLoadContext loadContext, Configuration conf)
-            throws IOException {
-        List<MatrixLoadContext> matrixLoadContexts = loadContext.getMatricesContext();
+    public static ModelLocalLoadResult loadToLocal(ModelLoadContext loadContext, Configuration conf) throws IOException {
+        List<MatrixLoadContext> matrixLoadContexts = loadContext.getMatricesContext();//根据模型获取矩阵上下文
         Map<String, Matrix> nameToMatrixMap = new HashMap<>(matrixLoadContexts.size());
         for (MatrixLoadContext matrixLoadContext : matrixLoadContexts) {
             if (matrixLoadContext.getLoadPath() == null) {
-                matrixLoadContext.setLoadPath(
-                        new Path(loadContext.getLoadPath(), matrixLoadContext.getMatrixName()).toString());
+                matrixLoadContext.setLoadPath(new Path(loadContext.getLoadPath(), matrixLoadContext.getMatrixName()).toString());
             }
             nameToMatrixMap.put(matrixLoadContext.getMatrixName(), loadToLocal(matrixLoadContext, conf));
         }
@@ -59,8 +60,14 @@ public class ModelTools {
         return new ModelLocalLoadResult(nameToMatrixMap);
     }
 
-    public static Matrix loadToLocal(MatrixLoadContext loadContext, Configuration conf)
-            throws IOException {
+    /**
+     *
+     * @param loadContext
+     * @param conf
+     * @return
+     * @throws IOException
+     */
+    public static Matrix loadToLocal(MatrixLoadContext loadContext, Configuration conf) throws IOException {
         try {
             // Read matrix meta from meta file
             Path metaFilePath = new Path(loadContext.getLoadPath(), ModelFilesConstent.modelMetaFileName);

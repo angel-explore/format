@@ -25,6 +25,8 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /**
+ * 文本格式，包含特征索引和对应的值，每一行是一个特征id和值的对，
+ * 特征id和值之间的分隔符默认是逗号。这种格式适合单行模型，例如LR等。
  * Text format: column id + sep + element value
  */
 public class ColIdValueTextRowFormat extends ElementFormatImpl {
@@ -40,7 +42,7 @@ public class ColIdValueTextRowFormat extends ElementFormatImpl {
 
     @Override
     public void save(IntFloatElement element, DataOutputStream out) throws IOException {
-        out.writeBytes(String.valueOf(element.colId) + sep + String.valueOf(element.value) + "\n");
+        out.writeBytes(element.colId + sep + element.value + "\n");
     }
 
     @Override

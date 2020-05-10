@@ -25,6 +25,13 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /**
+ * 文本格式，包含行号，特征索引和对应的值，每一行是一个行号，特征id和值的对。
+ * 行号，特征id和值之间的分隔符默认是逗号。这种格式可以表示多行模型。
+ * <p>
+ * rowid,index,value<br>
+ * rowid,index,value<br>
+ * rowid,index,value
+ * <p>
  * Text format: row id + sep + column id + sep + elememt value
  */
 public class RowIdColIdValueTextRowFormat extends ElementFormatImpl {
@@ -40,9 +47,7 @@ public class RowIdColIdValueTextRowFormat extends ElementFormatImpl {
 
     @Override
     public void save(IntFloatElement element, DataOutputStream out) throws IOException {
-        out.writeBytes(
-                String.valueOf(element.rowId) + sep + String.valueOf(element.colId) + sep + String
-                        .valueOf(element.value) + "\n");
+        out.writeBytes(element.rowId + sep + element.colId + sep + element.value + "\n");
     }
 
     @Override

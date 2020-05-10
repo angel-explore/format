@@ -25,6 +25,9 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /**
+ * 文本格式，只包含模型的值，每个值是一个单独的行。
+ * 与ValueBinaryRowFormat类似这种格式只适合单行稠密的模型，由于数据文件中没有列号（特征索引），
+ * 所以需要充模型元数据中获取索引范围。
  * Text format: values without index
  */
 public class ValueTextRowFormat extends ElementFormatImpl {
@@ -35,7 +38,7 @@ public class ValueTextRowFormat extends ElementFormatImpl {
 
     @Override
     public void save(IntFloatElement element, DataOutputStream out) throws IOException {
-        out.writeBytes(String.valueOf(element.value) + "\n");
+        out.writeBytes(element.value + "\n");
     }
 
     @Override

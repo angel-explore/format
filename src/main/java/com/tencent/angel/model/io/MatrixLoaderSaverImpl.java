@@ -63,8 +63,7 @@ public abstract class MatrixLoaderSaverImpl implements MatrixLoaderSaver {
     @Override
     public Matrix load(MatrixLoadContext loadContext, Configuration conf)
             throws IOException {
-        LOG.info(
-                "load matrix " + loadContext.getMatrixName() + " from path " + loadContext.getLoadPath());
+        LOG.info("load matrix " + loadContext.getMatrixName() + " from path " + loadContext.getLoadPath());
         Path matrixFilesPath = new Path(loadContext.getLoadPath());
         FileSystem fs = matrixFilesPath.getFileSystem(conf);
         if (!fs.exists(matrixFilesPath)) {

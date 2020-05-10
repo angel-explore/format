@@ -25,6 +25,9 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /**
+ * 二进制格式，这种格式是以列主序来输出一个矩阵，
+ * 目前只用于Embedding相关的输出（例如DNN，FM等算法中的Embedding层）。模型格式为
+ * |index|row1 value|row2 value|...|index|row1 value|row2 value|...|
  * Binary format: column id, column values
  */
 public class BinaryColumnFormat extends ColumnFormatImpl {

@@ -19,6 +19,10 @@ package com.tencent.angel.model.output.format;
 
 import org.apache.hadoop.conf.Configuration;
 
+
+/**
+ * 抽象类中定义了公共的配置
+ */
 public abstract class ColumnFormatImpl implements ColumnFormat {
 
     protected final Configuration conf;

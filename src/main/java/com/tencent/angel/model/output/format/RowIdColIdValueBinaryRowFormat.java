@@ -25,6 +25,8 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /**
+ * 二进制格式，包含模型的行号，特征索引和对应的值。这种格式可以表示多行模型。
+ * |rowid|index|value|rowid|index|value|...|
  * Binary format: row id, column id and elememt value
  */
 public class RowIdColIdValueBinaryRowFormat extends ElementFormatImpl {

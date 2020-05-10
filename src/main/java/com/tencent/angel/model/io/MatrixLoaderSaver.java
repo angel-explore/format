@@ -25,7 +25,7 @@ import org.apache.hadoop.conf.Configuration;
 import java.io.IOException;
 
 /**
- * Matrix loader/saver interface
+ * 矩阵加载器、保存器接口
  */
 public interface MatrixLoaderSaver {
 

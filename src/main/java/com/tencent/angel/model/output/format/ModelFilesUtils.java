@@ -30,12 +30,11 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Model ouput utils
+ * 模型输出工具类
  */
 public class ModelFilesUtils {
 
-    private static final ConcurrentHashMap<Integer, AtomicInteger> psModelFileGens =
-            new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<Integer, AtomicInteger> psModelFileGens = new ConcurrentHashMap<>();
 
     /**
      * Get a output file name for ps model, file name format : psId_partid
@@ -46,6 +45,13 @@ public class ModelFilesUtils {
         return String.valueOf(startPartId);
     }
 
+    /**
+     * 初始模型格式类型
+     * @param formatClass
+     * @param conf
+     * @return
+     * @throws IOException
+     */
     public static Format initFormat(String formatClass, Configuration conf) throws IOException {
         try {
             Constructor constructor = Class.forName(formatClass).getConstructor(Configuration.class);
@@ -55,6 +61,12 @@ public class ModelFilesUtils {
         }
     }
 
+    /**
+     *
+     * @param format
+     * @param conf
+     * @return
+     */
     public static MatrixLoaderSaver initLoaderSaver(Format format, Configuration conf) {
         if (format instanceof ElementFormat) {
             return new RowElementLoaderSaver((ElementFormat) format, conf);

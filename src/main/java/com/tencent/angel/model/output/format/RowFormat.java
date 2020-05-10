@@ -25,6 +25,7 @@ import java.io.IOException;
 
 /**
  * Base format for row-base matrix format
+ * 基于行的举证格式
  */
 public interface RowFormat extends Format {
 
